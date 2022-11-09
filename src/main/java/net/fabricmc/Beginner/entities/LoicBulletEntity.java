@@ -16,13 +16,6 @@ import net.minecraft.world.explosion.Explosion;
 
 public class LoicBulletEntity extends PersistentProjectileEntity
 {
-    public static final EntityType<LoicBulletEntity> LOIC_BULLET =
-            Registry.register(
-                    Registry.ENTITY_TYPE,
-                    new Identifier("wiki_entity", "loic_bullet"),
-                    FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, (EntityType.EntityFactory<LoicBulletEntity>) LoicBulletEntity::new).dimensions(EntityDimensions.fixed(0.75f, 0.75f)).build()
-            );
-
     public LoicBulletEntity(EntityType<? extends LoicBulletEntity> entityType, World world) {
         super(entityType, world);
     }

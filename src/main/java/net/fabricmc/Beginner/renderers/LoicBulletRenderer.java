@@ -1,7 +1,6 @@
 package net.fabricmc.Beginner.renderers;
 
 import net.fabricmc.Beginner.entities.LoicBulletEntity;
-import net.fabricmc.Beginner.models.LoicBulletModel;
 import net.minecraft.client.render.entity.*;
 import net.minecraft.util.Identifier;
 

@@ -20,6 +20,9 @@
   "entrypoints": {
     "main": [
       "net.fabricmc.Beginner.Main"
+    ],
+    "client": [
+      "net.fabricmc.Beginner.EntityTestingClient"
     ]
   },
   "mixins": [

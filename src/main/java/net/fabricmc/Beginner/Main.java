@@ -1,6 +1,7 @@
 package net.fabricmc.Beginner;
 
 import net.fabricmc.Beginner.entities.LoicBulletEntity;
+import net.fabricmc.Beginner.entities.LoicFishBulletEntity;
 import net.fabricmc.Beginner.items.ExplosiveBow;
 import net.fabricmc.Beginner.items.ShotgunHomemade;
 import net.fabricmc.Beginner.renderers.LoicBulletRenderer;
@@ -32,6 +33,11 @@ public class Main implements ModInitializer {
 			new Identifier("beginnermod", "loic_bullet"),
 			FabricEntityTypeBuilder.create(SpawnGroup.CREATURE,  (EntityType.EntityFactory<LoicBulletEntity>) LoicBulletEntity::new).dimensions(EntityDimensions.fixed(0.75f, 0.75f)).build()
 	);
+	public static final EntityType<LoicFishBulletEntity> LOIC_FISHBULLET = Registry.register(
+			Registry.ENTITY_TYPE,
+			new Identifier("beginnermod", "loic_fishbullet"),
+			FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, (EntityType.EntityFactory<LoicFishBulletEntity>) LoicFishBulletEntity::new).dimensions(EntityDimensions.fixed(0.75f, 0.75f)).build()
+	);
 
 	@Override
 	public void onInitialize() {
@@ -39,9 +45,8 @@ public class Main implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 
-		System.out.println("Hello Fabric world!");
+		FabricDefaultAttributeRegistry.register(LOIC_FISHBULLET, LoicFishBulletEntity.createMobAttributes());
 
-		//EntityRendererRegistry.INSTANCE.register(Main.LOIC_BULLET, (manager, context) -> new LoicBulletRenderer(manager));
 		Registry.register(Registry.ITEM, new Identifier("beginnermod", "shotgun_homemade"), SHOTGUN_HOMEMADE);
 		Registry.register(Registry.ITEM, new Identifier("beginnermod", "explosive_bow"), EXPLOSIVE_BOW);
 	}

@@ -1,5 +1,6 @@
 package net.fabricmc.Beginner.items;
 import net.fabricmc.Beginner.entities.LoicBulletEntity;
+import net.fabricmc.Beginner.entities.LoicFishBulletEntity;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
@@ -44,18 +45,19 @@ public class ShotgunHomemade extends BowItem {
                 float roll = playerEntity.getRoll();
                 if (!world.isClient)
                 {
-                    LinkedList<LoicBulletEntity> arrows = new LinkedList();
+                    LinkedList<LoicFishBulletEntity> fishBullets = new LinkedList();
                     for(int k = 0; k < SHOTS_NUMBER; k++)
                     {
                         Vec3d playerPos = playerEntity.getPos();
-                        LoicBulletEntity arrow = new LoicBulletEntity(playerPos.x, playerPos.y + 1, playerPos.z, world);
-                        arrow.setProperties(playerEntity, pitch, yaw, 0.0F, f * 7.0F, 2.0F);
-                        arrows.add(arrow);
+                        LoicFishBulletEntity fishBullet = new LoicFishBulletEntity(world);
+                        fishBullet.setPosition(playerPos.x, playerPos.y + 1, playerPos.z);
+                        fishBullet.setProperties(playerEntity, pitch, yaw, 0.0F, f * 7.0F, 2.0F);
+                        fishBullets.add(fishBullet);
                     }
 
                     for(int k = 0; k < SHOTS_NUMBER; k++)
                     {
-                        world.spawnEntity(arrows.get(k));
+                        world.spawnEntity(fishBullets.get(k));
                     }
 
                     float xg = -MathHelper.sin(yaw * 0.017453292F) * MathHelper.cos(pitch * 0.017453292F);
