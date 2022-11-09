@@ -2,6 +2,7 @@ package net.fabricmc.Beginner;
 
 import net.fabricmc.Beginner.entities.LoicBulletEntity;
 import net.fabricmc.Beginner.entities.LoicFishBulletEntity;
+import net.fabricmc.Beginner.items.ExplosiveAK47;
 import net.fabricmc.Beginner.items.ExplosiveBow;
 import net.fabricmc.Beginner.items.ShotgunHomemade;
 import net.fabricmc.Beginner.renderers.LoicBulletRenderer;
@@ -28,6 +29,7 @@ public class Main implements ModInitializer {
 
 	static public final Item SHOTGUN_HOMEMADE = new ShotgunHomemade(new FabricItemSettings().group(ItemGroup.MISC));
 	static public final Item EXPLOSIVE_BOW = new ExplosiveBow(new FabricItemSettings().group(ItemGroup.MISC));
+	static public final Item EXPLOSIVE_AK47 = new ExplosiveAK47(new FabricItemSettings().group(ItemGroup.MISC));
 	public static final EntityType<LoicBulletEntity> LOIC_BULLET = Registry.register(
 			Registry.ENTITY_TYPE,
 			new Identifier("beginnermod", "loic_bullet"),
@@ -49,5 +51,6 @@ public class Main implements ModInitializer {
 
 		Registry.register(Registry.ITEM, new Identifier("beginnermod", "shotgun_homemade"), SHOTGUN_HOMEMADE);
 		Registry.register(Registry.ITEM, new Identifier("beginnermod", "explosive_bow"), EXPLOSIVE_BOW);
+		Registry.register(Registry.ITEM, new Identifier("beginnermod", "explosive_ak47"), EXPLOSIVE_AK47);
 	}
 }
