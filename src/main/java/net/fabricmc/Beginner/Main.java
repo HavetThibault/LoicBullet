@@ -19,6 +19,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.TypedActionResult;
@@ -30,16 +31,20 @@ public class Main implements ModInitializer {
 	static public final Item SHOTGUN_HOMEMADE = new ShotgunHomemade(new FabricItemSettings().group(ItemGroup.MISC));
 	static public final Item EXPLOSIVE_BOW = new ExplosiveBow(new FabricItemSettings().group(ItemGroup.MISC));
 	static public final Item EXPLOSIVE_AK47 = new ExplosiveAK47(new FabricItemSettings().group(ItemGroup.MISC));
+
 	public static final EntityType<LoicBulletEntity> LOIC_BULLET = Registry.register(
 			Registry.ENTITY_TYPE,
 			new Identifier("beginnermod", "loic_bullet"),
-			FabricEntityTypeBuilder.create(SpawnGroup.CREATURE,  (EntityType.EntityFactory<LoicBulletEntity>) LoicBulletEntity::new).dimensions(EntityDimensions.fixed(0.75f, 0.75f)).build()
+			FabricEntityTypeBuilder.create(SpawnGroup.CREATURE,  (EntityType.EntityFactory<LoicBulletEntity>) LoicBulletEntity::new).dimensions(EntityDimensions.fixed(0.0f, 0.0f)).build()
 	);
 	public static final EntityType<LoicFishBulletEntity> LOIC_FISHBULLET = Registry.register(
 			Registry.ENTITY_TYPE,
 			new Identifier("beginnermod", "loic_fishbullet"),
-			FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, (EntityType.EntityFactory<LoicFishBulletEntity>) LoicFishBulletEntity::new).dimensions(EntityDimensions.fixed(0.75f, 0.75f)).build()
+			FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, (EntityType.EntityFactory<LoicFishBulletEntity>) LoicFishBulletEntity::new).dimensions(EntityDimensions.fixed(0.5f, 0.5f)).build()
 	);
+
+	public static final Identifier LOIC_FISHBULLET_SOUND_ID = new Identifier("beginnermod:loic_fishbullet_sound");
+	public static SoundEvent LOIC_FISHBULLET_SOUND_EVENT = new SoundEvent(LOIC_FISHBULLET_SOUND_ID);
 
 	@Override
 	public void onInitialize() {
@@ -52,5 +57,8 @@ public class Main implements ModInitializer {
 		Registry.register(Registry.ITEM, new Identifier("beginnermod", "shotgun_homemade"), SHOTGUN_HOMEMADE);
 		Registry.register(Registry.ITEM, new Identifier("beginnermod", "explosive_bow"), EXPLOSIVE_BOW);
 		Registry.register(Registry.ITEM, new Identifier("beginnermod", "explosive_ak47"), EXPLOSIVE_AK47);
+
+		// Register sound
+		Registry.register(Registry.SOUND_EVENT, LOIC_FISHBULLET_SOUND_ID, LOIC_FISHBULLET_SOUND_EVENT);
 	}
 }

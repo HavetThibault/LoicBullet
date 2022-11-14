@@ -3,11 +3,8 @@ package net.fabricmc.Beginner.models;
 import net.fabricmc.Beginner.entities.LoicFishBulletEntity;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
-import net.minecraft.client.render.entity.ArrowEntityRenderer;
 import net.minecraft.client.render.entity.model.EntityModel;
-import net.minecraft.client.render.entity.model.EntityModelPartNames;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.Entity;
 
 public class LoicFishBulletModel extends EntityModel<LoicFishBulletEntity> {
 

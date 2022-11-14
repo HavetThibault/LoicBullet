@@ -1,10 +1,12 @@
 package net.fabricmc.Beginner.entities;
 
 import net.minecraft.block.BlockState;
+import net.minecraft.client.render.entity.ArrowEntityRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.BowItem;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.MathHelper;
@@ -13,9 +15,10 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
 
-import java.util.Iterator;
 
 public class LoicFishBulletEntity extends PathAwareEntity {
+
+    private int life = 100;
 
     public LoicFishBulletEntity(EntityType<? extends LoicFishBulletEntity> entityType, World world) {
         super(entityType, world);
@@ -61,6 +64,12 @@ public class LoicFishBulletEntity extends PathAwareEntity {
         BlockState backwardblockState = this.world.getBlockState(blockPos.add(0,-1,0));
         if (!(upblockState.isAir() && downblockState.isAir() && rightblockState.isAir() && leftblockState.isAir() && forwardblockState.isAir() && backwardblockState.isAir())) {
             explode();
+        }
+        else
+        {
+            life--;
+            if(life <= 0)
+                this.kill();
         }
     }
 

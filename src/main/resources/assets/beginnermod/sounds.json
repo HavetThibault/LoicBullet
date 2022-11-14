@@ -1,0 +1,8 @@
+{
+  "loic_fishbullet_sound": {
+    "subtitle": "subtitles.beginnermod.loic_fishbullet_sound",
+    "sounds": [
+      "beginnermod:loic_fishbullet_sound"
+    ]
+  }
+}

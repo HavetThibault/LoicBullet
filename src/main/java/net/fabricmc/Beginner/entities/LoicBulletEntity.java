@@ -16,6 +16,8 @@ import net.minecraft.world.explosion.Explosion;
 
 public class LoicBulletEntity extends PersistentProjectileEntity
 {
+    private int life;
+
     public LoicBulletEntity(EntityType<? extends LoicBulletEntity> entityType, World world) {
         super(entityType, world);
     }

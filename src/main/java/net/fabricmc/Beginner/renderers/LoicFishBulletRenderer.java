@@ -3,10 +3,13 @@ package net.fabricmc.Beginner.renderers;
 import net.fabricmc.Beginner.EntityTestingClient;
 import net.fabricmc.Beginner.entities.LoicFishBulletEntity;
 import net.fabricmc.Beginner.models.LoicFishBulletModel;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.util.Identifier;
 
+@Environment(EnvType.CLIENT)
 public class LoicFishBulletRenderer extends MobEntityRenderer<LoicFishBulletEntity, LoicFishBulletModel> {
 
     public LoicFishBulletRenderer(EntityRendererFactory.Context context) {
