@@ -1,17 +1,15 @@
 package net.fabricmc.Beginner;
 
 import net.fabricmc.Beginner.models.LoicFishBulletModel;
-import net.fabricmc.Beginner.renderers.LoicBulletRenderer;
 import net.fabricmc.Beginner.renderers.LoicFishBulletRenderer;
+import net.fabricmc.Beginner.renderers.LoicReactiveBulletRenderer;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
-import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 
 @Environment(EnvType.CLIENT)
 public class EntityTestingClient implements ClientModInitializer {
@@ -26,8 +24,8 @@ public class EntityTestingClient implements ClientModInitializer {
          * Entity Renderers can also manipulate the model before it renders based on entity context (EndermanEntityRenderer#render).
          */
 
-        // In 1.17, use EntityRendererRegistry.register (seen below) instead of EntityRendererRegistry.INSTANCE.register (seen above)
         EntityRendererRegistry.register(Main.LOIC_FISHBULLET, (context) -> new LoicFishBulletRenderer(context));
+        EntityRendererRegistry.register(Main.LOIC_REACTIVEBULLET, (context) -> new LoicReactiveBulletRenderer(context));
 
         EntityModelLayerRegistry.registerModelLayer(MODEL_LOIC_FISHBULLET_LAYER, LoicFishBulletModel::getTexturedModelData);
     }

@@ -18,6 +18,6 @@ public class LoicFishBulletRenderer extends MobEntityRenderer<LoicFishBulletEnti
 
     @Override
     public Identifier getTexture(LoicFishBulletEntity entity) {
-        return new Identifier("beginnermod", "/textures.entity/loic_fishbullet/loic_fishbullet_model.png");
+        return new Identifier("beginnermod", "/textures/entity/loic_fishbullet_model.png");
     }
 }

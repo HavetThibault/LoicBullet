@@ -1,5 +1,4 @@
 package net.fabricmc.Beginner.items;
-import net.fabricmc.Beginner.entities.LoicBulletEntity;
 import net.fabricmc.Beginner.entities.LoicFishBulletEntity;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
